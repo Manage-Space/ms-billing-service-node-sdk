@@ -11,10 +11,10 @@
  */
 
 import { RequestFile } from './models';
-import { LedgerResponseDto } from './ledgerResponseDto';
+import { LedgerDetailsResponse } from './ledgerDetailsResponse';
 
 export class GetLedgers200Response {
-    'data'?: Array<LedgerResponseDto>;
+    'data'?: Array<LedgerDetailsResponse>;
     'success'?: boolean;
     'error'?: object;
 
@@ -24,7 +24,7 @@ export class GetLedgers200Response {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<LedgerResponseDto>"
+            "type": "Array<LedgerDetailsResponse>"
         },
         {
             "name": "success",

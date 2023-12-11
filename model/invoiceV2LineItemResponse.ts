@@ -59,6 +59,10 @@ export class InvoiceV2LineItemResponse {
     */
     'ledgerId': string | null;
     /**
+    * Sub product ID
+    */
+    'subProductId': string | null;
+    /**
     * Tag.
     */
     'tag': string;
@@ -120,6 +124,11 @@ export class InvoiceV2LineItemResponse {
         {
             "name": "ledgerId",
             "baseName": "ledgerId",
+            "type": "string"
+        },
+        {
+            "name": "subProductId",
+            "baseName": "subProductId",
             "type": "string"
         },
         {

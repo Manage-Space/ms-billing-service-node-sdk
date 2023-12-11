@@ -27,8 +27,9 @@ export * from './invoiceV2LineItemResponse';
 export * from './invoiceV2LineItemResponseInvoice';
 export * from './invoiceV2Response';
 export * from './invoiceV2ResponseAddress';
-export * from './ledgerResponseDto';
+export * from './ledgerDetailsResponse';
 export * from './reducedInvoiceV2LineItem';
+export * from './transactionSummaryResponse';
 export * from './unauthorizedError401Response';
 export * from './unauthorizedError401ResponseError';
 
@@ -72,8 +73,9 @@ import { InvoiceV2LineItemResponse } from './invoiceV2LineItemResponse';
 import { InvoiceV2LineItemResponseInvoice } from './invoiceV2LineItemResponseInvoice';
 import { InvoiceV2Response } from './invoiceV2Response';
 import { InvoiceV2ResponseAddress } from './invoiceV2ResponseAddress';
-import { LedgerResponseDto } from './ledgerResponseDto';
+import { LedgerDetailsResponse } from './ledgerDetailsResponse';
 import { ReducedInvoiceV2LineItem } from './reducedInvoiceV2LineItem';
+import { TransactionSummaryResponse } from './transactionSummaryResponse';
 import { UnauthorizedError401Response } from './unauthorizedError401Response';
 import { UnauthorizedError401ResponseError } from './unauthorizedError401ResponseError';
 
@@ -93,6 +95,7 @@ let enumsMap: {[index: string]: any} = {
         "AccountTransactionType": AccountTransactionType,
         "InvoiceStatus": InvoiceStatus,
         "InvoiceV2LineItemResponseInvoice.InvoiceStatusEnum": InvoiceV2LineItemResponseInvoice.InvoiceStatusEnum,
+        "TransactionSummaryResponse.StatusEnum": TransactionSummaryResponse.StatusEnum,
 }
 
 let typeMap: {[index: string]: any} = {
@@ -121,8 +124,9 @@ let typeMap: {[index: string]: any} = {
     "InvoiceV2LineItemResponseInvoice": InvoiceV2LineItemResponseInvoice,
     "InvoiceV2Response": InvoiceV2Response,
     "InvoiceV2ResponseAddress": InvoiceV2ResponseAddress,
-    "LedgerResponseDto": LedgerResponseDto,
+    "LedgerDetailsResponse": LedgerDetailsResponse,
     "ReducedInvoiceV2LineItem": ReducedInvoiceV2LineItem,
+    "TransactionSummaryResponse": TransactionSummaryResponse,
     "UnauthorizedError401Response": UnauthorizedError401Response,
     "UnauthorizedError401ResponseError": UnauthorizedError401ResponseError,
 }

@@ -58,6 +58,10 @@ export class ReducedInvoiceV2LineItem {
     */
     'ledgerId': string | null;
     /**
+    * Sub product ID
+    */
+    'subProductId': string | null;
+    /**
     * Tag.
     */
     'tag': string;
@@ -118,6 +122,11 @@ export class ReducedInvoiceV2LineItem {
         {
             "name": "ledgerId",
             "baseName": "ledgerId",
+            "type": "string"
+        },
+        {
+            "name": "subProductId",
+            "baseName": "subProductId",
             "type": "string"
         },
         {
