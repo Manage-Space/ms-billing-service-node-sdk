@@ -67,6 +67,10 @@ export class LedgerDetailsResponse {
     */
     'mobileNumber': string;
     /**
+    * Account ID
+    */
+    'accountId': string;
+    /**
     * Transaction Summary.
     */
     'transactionsSummary': Array<TransactionSummaryResponse>;
@@ -137,6 +141,11 @@ export class LedgerDetailsResponse {
         {
             "name": "mobileNumber",
             "baseName": "mobileNumber",
+            "type": "string"
+        },
+        {
+            "name": "accountId",
+            "baseName": "accountId",
             "type": "string"
         },
         {
