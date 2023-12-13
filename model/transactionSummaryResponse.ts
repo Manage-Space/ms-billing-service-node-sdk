@@ -18,6 +18,10 @@ export class TransactionSummaryResponse {
     * Invoice ID.
     */
     'invoiceId': string;
+    /**
+    * Sequential Invoice Number.
+    */
+    'invoiceNumber': number;
     'invoiceStatus': InvoiceStatus;
     /**
     * Invoice period end date.
@@ -55,6 +59,11 @@ export class TransactionSummaryResponse {
             "name": "invoiceId",
             "baseName": "invoiceId",
             "type": "string"
+        },
+        {
+            "name": "invoiceNumber",
+            "baseName": "invoiceNumber",
+            "type": "number"
         },
         {
             "name": "invoiceStatus",
