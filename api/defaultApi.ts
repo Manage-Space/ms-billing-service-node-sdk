@@ -25,6 +25,8 @@ import { GetInvoiceByIdV2200Response } from '../model/getInvoiceByIdV2200Respons
 import { GetInvoiceLineItemsByFilters200Response } from '../model/getInvoiceLineItemsByFilters200Response';
 import { GetLedgers200Response } from '../model/getLedgers200Response';
 import { InternalServerError500Response } from '../model/internalServerError500Response';
+import { InvoiceRunRequest } from '../model/invoiceRunRequest';
+import { Run200Response } from '../model/run200Response';
 import { UnauthorizedError401Response } from '../model/unauthorizedError401Response';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
@@ -1201,6 +1203,84 @@ export class DefaultApi {
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             body = ObjectSerializer.deserialize(body, "GetLedgers200Response");
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * 
+     * @param orgId The Organization ID
+     * @param invoiceRunRequest 
+     */
+    public async run (orgId: string, invoiceRunRequest: InvoiceRunRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Run200Response;  }> {
+        const localVarPath = this.basePath + '/billing/orgs/{orgId}/invoice-run'
+            .replace('{' + 'orgId' + '}', encodeURIComponent(String(orgId)));
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json;v=1'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'orgId' is not null or undefined
+        if (orgId === null || orgId === undefined) {
+            throw new Error('Required parameter orgId was null or undefined when calling run.');
+        }
+
+        // verify required parameter 'invoiceRunRequest' is not null or undefined
+        if (invoiceRunRequest === null || invoiceRunRequest === undefined) {
+            throw new Error('Required parameter invoiceRunRequest was null or undefined when calling run.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(invoiceRunRequest, "InvoiceRunRequest")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.bearer.accessToken) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.bearer.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: Run200Response;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            body = ObjectSerializer.deserialize(body, "Run200Response");
                             resolve({ response: response, body: body });
                         } else {
                             reject(new HttpError(response, body, response.statusCode));
