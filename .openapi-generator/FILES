@@ -11,8 +11,6 @@ model/badRequestError400Response.ts
 model/badRequestError400ResponseError.ts
 model/baseError.ts
 model/createInvoiceLineItemRequest.ts
-model/eBillingCycleTypeEnum.ts
-model/eInvoicePeriodType.ts
 model/forbiddenError403Response.ts
 model/forbiddenError403ResponseError.ts
 model/getAccountCurrentBalance200Response.ts
@@ -26,8 +24,6 @@ model/internalServerError500ResponseError.ts
 model/invoiceLineItemResponse.ts
 model/invoiceResponse.ts
 model/invoiceResponseAddress.ts
-model/invoiceRunRequest.ts
-model/invoiceRunResponse.ts
 model/invoiceStatus.ts
 model/invoiceV2AddressResponse.ts
 model/invoiceV2LineItemResponse.ts
@@ -37,7 +33,6 @@ model/invoiceV2ResponseAddress.ts
 model/ledgerDetailsResponse.ts
 model/models.ts
 model/reducedInvoiceV2LineItem.ts
-model/run200Response.ts
 model/transactionSummaryResponse.ts
 model/unauthorizedError401Response.ts
 model/unauthorizedError401ResponseError.ts

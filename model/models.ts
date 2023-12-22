@@ -8,8 +8,6 @@ export * from './badRequestError400Response';
 export * from './badRequestError400ResponseError';
 export * from './baseError';
 export * from './createInvoiceLineItemRequest';
-export * from './eBillingCycleTypeEnum';
-export * from './eInvoicePeriodType';
 export * from './forbiddenError403Response';
 export * from './forbiddenError403ResponseError';
 export * from './getAccountCurrentBalance200Response';
@@ -23,8 +21,6 @@ export * from './internalServerError500ResponseError';
 export * from './invoiceLineItemResponse';
 export * from './invoiceResponse';
 export * from './invoiceResponseAddress';
-export * from './invoiceRunRequest';
-export * from './invoiceRunResponse';
 export * from './invoiceStatus';
 export * from './invoiceV2AddressResponse';
 export * from './invoiceV2LineItemResponse';
@@ -33,7 +29,6 @@ export * from './invoiceV2Response';
 export * from './invoiceV2ResponseAddress';
 export * from './ledgerDetailsResponse';
 export * from './reducedInvoiceV2LineItem';
-export * from './run200Response';
 export * from './transactionSummaryResponse';
 export * from './unauthorizedError401Response';
 export * from './unauthorizedError401ResponseError';
@@ -59,8 +54,6 @@ import { BadRequestError400Response } from './badRequestError400Response';
 import { BadRequestError400ResponseError } from './badRequestError400ResponseError';
 import { BaseError } from './baseError';
 import { CreateInvoiceLineItemRequest } from './createInvoiceLineItemRequest';
-import { EBillingCycleTypeEnum } from './eBillingCycleTypeEnum';
-import { EInvoicePeriodType } from './eInvoicePeriodType';
 import { ForbiddenError403Response } from './forbiddenError403Response';
 import { ForbiddenError403ResponseError } from './forbiddenError403ResponseError';
 import { GetAccountCurrentBalance200Response } from './getAccountCurrentBalance200Response';
@@ -74,8 +67,6 @@ import { InternalServerError500ResponseError } from './internalServerError500Res
 import { InvoiceLineItemResponse } from './invoiceLineItemResponse';
 import { InvoiceResponse } from './invoiceResponse';
 import { InvoiceResponseAddress } from './invoiceResponseAddress';
-import { InvoiceRunRequest } from './invoiceRunRequest';
-import { InvoiceRunResponse } from './invoiceRunResponse';
 import { InvoiceStatus } from './invoiceStatus';
 import { InvoiceV2AddressResponse } from './invoiceV2AddressResponse';
 import { InvoiceV2LineItemResponse } from './invoiceV2LineItemResponse';
@@ -84,7 +75,6 @@ import { InvoiceV2Response } from './invoiceV2Response';
 import { InvoiceV2ResponseAddress } from './invoiceV2ResponseAddress';
 import { LedgerDetailsResponse } from './ledgerDetailsResponse';
 import { ReducedInvoiceV2LineItem } from './reducedInvoiceV2LineItem';
-import { Run200Response } from './run200Response';
 import { TransactionSummaryResponse } from './transactionSummaryResponse';
 import { UnauthorizedError401Response } from './unauthorizedError401Response';
 import { UnauthorizedError401ResponseError } from './unauthorizedError401ResponseError';
@@ -103,8 +93,6 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "AccountTransactionType": AccountTransactionType,
-        "EBillingCycleTypeEnum": EBillingCycleTypeEnum,
-        "EInvoicePeriodType": EInvoicePeriodType,
         "InvoiceStatus": InvoiceStatus,
         "InvoiceV2LineItemResponseInvoice.InvoiceStatusEnum": InvoiceV2LineItemResponseInvoice.InvoiceStatusEnum,
         "TransactionSummaryResponse.StatusEnum": TransactionSummaryResponse.StatusEnum,
@@ -131,8 +119,6 @@ let typeMap: {[index: string]: any} = {
     "InvoiceLineItemResponse": InvoiceLineItemResponse,
     "InvoiceResponse": InvoiceResponse,
     "InvoiceResponseAddress": InvoiceResponseAddress,
-    "InvoiceRunRequest": InvoiceRunRequest,
-    "InvoiceRunResponse": InvoiceRunResponse,
     "InvoiceV2AddressResponse": InvoiceV2AddressResponse,
     "InvoiceV2LineItemResponse": InvoiceV2LineItemResponse,
     "InvoiceV2LineItemResponseInvoice": InvoiceV2LineItemResponseInvoice,
@@ -140,7 +126,6 @@ let typeMap: {[index: string]: any} = {
     "InvoiceV2ResponseAddress": InvoiceV2ResponseAddress,
     "LedgerDetailsResponse": LedgerDetailsResponse,
     "ReducedInvoiceV2LineItem": ReducedInvoiceV2LineItem,
-    "Run200Response": Run200Response,
     "TransactionSummaryResponse": TransactionSummaryResponse,
     "UnauthorizedError401Response": UnauthorizedError401Response,
     "UnauthorizedError401ResponseError": UnauthorizedError401ResponseError,
