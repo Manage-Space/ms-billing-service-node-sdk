@@ -3,7 +3,6 @@ import localVarRequest from 'request';
 export * from './accountCurrentBalance';
 export * from './accountTransactionResponse';
 export * from './accountTransactionType';
-export * from './addressResponse';
 export * from './badRequestError400Response';
 export * from './badRequestError400ResponseError';
 export * from './baseError';
@@ -12,15 +11,11 @@ export * from './forbiddenError403Response';
 export * from './forbiddenError403ResponseError';
 export * from './getAccountCurrentBalance200Response';
 export * from './getAccountTransactions200Response';
-export * from './getInvoiceById200Response';
 export * from './getInvoiceByIdV2200Response';
 export * from './getInvoiceLineItemsByFilters200Response';
 export * from './getLedgers200Response';
 export * from './internalServerError500Response';
 export * from './internalServerError500ResponseError';
-export * from './invoiceLineItemResponse';
-export * from './invoiceResponse';
-export * from './invoiceResponseAddress';
 export * from './invoiceStatus';
 export * from './invoiceV2AddressResponse';
 export * from './invoiceV2LineItemResponse';
@@ -49,7 +44,6 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 import { AccountCurrentBalance } from './accountCurrentBalance';
 import { AccountTransactionResponse } from './accountTransactionResponse';
 import { AccountTransactionType } from './accountTransactionType';
-import { AddressResponse } from './addressResponse';
 import { BadRequestError400Response } from './badRequestError400Response';
 import { BadRequestError400ResponseError } from './badRequestError400ResponseError';
 import { BaseError } from './baseError';
@@ -58,15 +52,11 @@ import { ForbiddenError403Response } from './forbiddenError403Response';
 import { ForbiddenError403ResponseError } from './forbiddenError403ResponseError';
 import { GetAccountCurrentBalance200Response } from './getAccountCurrentBalance200Response';
 import { GetAccountTransactions200Response } from './getAccountTransactions200Response';
-import { GetInvoiceById200Response } from './getInvoiceById200Response';
 import { GetInvoiceByIdV2200Response } from './getInvoiceByIdV2200Response';
 import { GetInvoiceLineItemsByFilters200Response } from './getInvoiceLineItemsByFilters200Response';
 import { GetLedgers200Response } from './getLedgers200Response';
 import { InternalServerError500Response } from './internalServerError500Response';
 import { InternalServerError500ResponseError } from './internalServerError500ResponseError';
-import { InvoiceLineItemResponse } from './invoiceLineItemResponse';
-import { InvoiceResponse } from './invoiceResponse';
-import { InvoiceResponseAddress } from './invoiceResponseAddress';
 import { InvoiceStatus } from './invoiceStatus';
 import { InvoiceV2AddressResponse } from './invoiceV2AddressResponse';
 import { InvoiceV2LineItemResponse } from './invoiceV2LineItemResponse';
@@ -101,7 +91,6 @@ let enumsMap: {[index: string]: any} = {
 let typeMap: {[index: string]: any} = {
     "AccountCurrentBalance": AccountCurrentBalance,
     "AccountTransactionResponse": AccountTransactionResponse,
-    "AddressResponse": AddressResponse,
     "BadRequestError400Response": BadRequestError400Response,
     "BadRequestError400ResponseError": BadRequestError400ResponseError,
     "BaseError": BaseError,
@@ -110,15 +99,11 @@ let typeMap: {[index: string]: any} = {
     "ForbiddenError403ResponseError": ForbiddenError403ResponseError,
     "GetAccountCurrentBalance200Response": GetAccountCurrentBalance200Response,
     "GetAccountTransactions200Response": GetAccountTransactions200Response,
-    "GetInvoiceById200Response": GetInvoiceById200Response,
     "GetInvoiceByIdV2200Response": GetInvoiceByIdV2200Response,
     "GetInvoiceLineItemsByFilters200Response": GetInvoiceLineItemsByFilters200Response,
     "GetLedgers200Response": GetLedgers200Response,
     "InternalServerError500Response": InternalServerError500Response,
     "InternalServerError500ResponseError": InternalServerError500ResponseError,
-    "InvoiceLineItemResponse": InvoiceLineItemResponse,
-    "InvoiceResponse": InvoiceResponse,
-    "InvoiceResponseAddress": InvoiceResponseAddress,
     "InvoiceV2AddressResponse": InvoiceV2AddressResponse,
     "InvoiceV2LineItemResponse": InvoiceV2LineItemResponse,
     "InvoiceV2LineItemResponseInvoice": InvoiceV2LineItemResponseInvoice,

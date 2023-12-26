@@ -6,7 +6,6 @@ git_push.sh
 model/accountCurrentBalance.ts
 model/accountTransactionResponse.ts
 model/accountTransactionType.ts
-model/addressResponse.ts
 model/badRequestError400Response.ts
 model/badRequestError400ResponseError.ts
 model/baseError.ts
@@ -15,15 +14,11 @@ model/forbiddenError403Response.ts
 model/forbiddenError403ResponseError.ts
 model/getAccountCurrentBalance200Response.ts
 model/getAccountTransactions200Response.ts
-model/getInvoiceById200Response.ts
 model/getInvoiceByIdV2200Response.ts
 model/getInvoiceLineItemsByFilters200Response.ts
 model/getLedgers200Response.ts
 model/internalServerError500Response.ts
 model/internalServerError500ResponseError.ts
-model/invoiceLineItemResponse.ts
-model/invoiceResponse.ts
-model/invoiceResponseAddress.ts
 model/invoiceStatus.ts
 model/invoiceV2AddressResponse.ts
 model/invoiceV2LineItemResponse.ts

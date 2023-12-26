@@ -20,7 +20,6 @@ import { CreateInvoiceLineItemRequest } from '../model/createInvoiceLineItemRequ
 import { ForbiddenError403Response } from '../model/forbiddenError403Response';
 import { GetAccountCurrentBalance200Response } from '../model/getAccountCurrentBalance200Response';
 import { GetAccountTransactions200Response } from '../model/getAccountTransactions200Response';
-import { GetInvoiceById200Response } from '../model/getInvoiceById200Response';
 import { GetInvoiceByIdV2200Response } from '../model/getInvoiceByIdV2200Response';
 import { GetInvoiceLineItemsByFilters200Response } from '../model/getInvoiceLineItemsByFilters200Response';
 import { GetLedgers200Response } from '../model/getLedgers200Response';
@@ -468,85 +467,6 @@ export class DefaultApi {
      * Get invoice by id.
      * @summary Get invoice by id.
      * @param orgId The Organization ID
-     * @param invoiceId Invoice ID
-     */
-    public async getInvoiceById (orgId: string, invoiceId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetInvoiceById200Response;  }> {
-        const localVarPath = this.basePath + '/billing/orgs/{orgId}/invoices/{invoiceId}'
-            .replace('{' + 'orgId' + '}', encodeURIComponent(String(orgId)))
-            .replace('{' + 'invoiceId' + '}', encodeURIComponent(String(invoiceId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json;v=1'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'orgId' is not null or undefined
-        if (orgId === null || orgId === undefined) {
-            throw new Error('Required parameter orgId was null or undefined when calling getInvoiceById.');
-        }
-
-        // verify required parameter 'invoiceId' is not null or undefined
-        if (invoiceId === null || invoiceId === undefined) {
-            throw new Error('Required parameter invoiceId was null or undefined when calling getInvoiceById.');
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.bearer.accessToken) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.bearer.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: GetInvoiceById200Response;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetInvoiceById200Response");
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * Get invoice by id.
-     * @summary Get invoice by id.
-     * @param orgId The Organization ID
      * @param siteId The Site ID
      * @param invoiceId Invoice ID
      */
@@ -805,108 +725,6 @@ export class DefaultApi {
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             body = ObjectSerializer.deserialize(body, "GetInvoiceLineItemsByFilters200Response");
-                            resolve({ response: response, body: body });
-                        } else {
-                            reject(new HttpError(response, body, response.statusCode));
-                        }
-                    }
-                });
-            });
-        });
-    }
-    /**
-     * Get list of invoices with filters such as `siteId`; `accountId`, etc.
-     * @summary Get list of invoices
-     * @param orgId The Organization ID
-     * @param offset The offset of the first record to return (0-indexed).
-     * @param limit The maximum number of records to return per page.
-     * @param dateFrom 
-     * @param dateTo 
-     * @param siteId Site Id
-     * @param accountId Account Id
-     */
-    public async getInvoices (orgId: string, offset?: number, limit?: number, dateFrom?: Date, dateTo?: Date, siteId?: string, accountId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetInvoiceById200Response;  }> {
-        const localVarPath = this.basePath + '/billing/orgs/{orgId}/invoices'
-            .replace('{' + 'orgId' + '}', encodeURIComponent(String(orgId)));
-        let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json;v=1'];
-        // give precedence to 'application/json'
-        if (produces.indexOf('application/json') >= 0) {
-            localVarHeaderParams.Accept = 'application/json';
-        } else {
-            localVarHeaderParams.Accept = produces.join(',');
-        }
-        let localVarFormParams: any = {};
-
-        // verify required parameter 'orgId' is not null or undefined
-        if (orgId === null || orgId === undefined) {
-            throw new Error('Required parameter orgId was null or undefined when calling getInvoices.');
-        }
-
-        if (offset !== undefined) {
-            localVarQueryParameters['offset'] = ObjectSerializer.serialize(offset, "number");
-        }
-
-        if (limit !== undefined) {
-            localVarQueryParameters['limit'] = ObjectSerializer.serialize(limit, "number");
-        }
-
-        if (dateFrom !== undefined) {
-            localVarQueryParameters['dateFrom'] = ObjectSerializer.serialize(dateFrom, "Date");
-        }
-
-        if (dateTo !== undefined) {
-            localVarQueryParameters['dateTo'] = ObjectSerializer.serialize(dateTo, "Date");
-        }
-
-        if (siteId !== undefined) {
-            localVarQueryParameters['siteId'] = ObjectSerializer.serialize(siteId, "string");
-        }
-
-        if (accountId !== undefined) {
-            localVarQueryParameters['accountId'] = ObjectSerializer.serialize(accountId, "string");
-        }
-
-        (<any>Object).assign(localVarHeaderParams, options.headers);
-
-        let localVarUseFormData = false;
-
-        let localVarRequestOptions: localVarRequest.Options = {
-            method: 'GET',
-            qs: localVarQueryParameters,
-            headers: localVarHeaderParams,
-            uri: localVarPath,
-            useQuerystring: this._useQuerystring,
-            json: true,
-        };
-
-        let authenticationPromise = Promise.resolve();
-        if (this.authentications.bearer.accessToken) {
-            authenticationPromise = authenticationPromise.then(() => this.authentications.bearer.applyToRequest(localVarRequestOptions));
-        }
-        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
-
-        let interceptorPromise = authenticationPromise;
-        for (const interceptor of this.interceptors) {
-            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
-        }
-
-        return interceptorPromise.then(() => {
-            if (Object.keys(localVarFormParams).length) {
-                if (localVarUseFormData) {
-                    (<any>localVarRequestOptions).formData = localVarFormParams;
-                } else {
-                    localVarRequestOptions.form = localVarFormParams;
-                }
-            }
-            return new Promise<{ response: http.IncomingMessage; body: GetInvoiceById200Response;  }>((resolve, reject) => {
-                localVarRequest(localVarRequestOptions, (error, response, body) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetInvoiceById200Response");
                             resolve({ response: response, body: body });
                         } else {
                             reject(new HttpError(response, body, response.statusCode));
