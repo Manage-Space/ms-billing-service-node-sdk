@@ -24,6 +24,7 @@ import { GetInvoiceByIdV2200Response } from '../model/getInvoiceByIdV2200Respons
 import { GetInvoiceLineItemsByFilters200Response } from '../model/getInvoiceLineItemsByFilters200Response';
 import { GetLedgers200Response } from '../model/getLedgers200Response';
 import { InternalServerError500Response } from '../model/internalServerError500Response';
+import { InvoiceLineItemActionRequest } from '../model/invoiceLineItemActionRequest';
 import { UnauthorizedError401Response } from '../model/unauthorizedError401Response';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
@@ -1029,17 +1030,18 @@ export class DefaultApi {
         });
     }
     /**
-     * create an invoice line item to waive a fee.
-     * @summary Create an invoice line item to waive a fee.
+     * Handle invoice line items.
+     * @summary Handle invoice line items.
      * @param orgId The Organization ID
      * @param siteId The Site ID
-     * @param invoiceLineItemId Invoice Line Item ID
+     * @param invoiceId The Invoice ID
+     * @param invoiceLineItemActionRequest 
      */
-    public async waiveInvoiceFee (orgId: string, siteId: string, invoiceLineItemId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetInvoiceLineItemsByFilters200Response;  }> {
-        const localVarPath = this.basePath + '/billing/orgs/{orgId}/sites/{siteId}/invoice-line-items/{invoiceLineItemId}'
+    public async handleInvoiceLineItemAction (orgId: string, siteId: string, invoiceId: string, invoiceLineItemActionRequest: InvoiceLineItemActionRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetInvoiceLineItemsByFilters200Response;  }> {
+        const localVarPath = this.basePath + '/billing/orgs/{orgId}/sites/{siteId}/invoice/{invoiceId}/invoice-line-items'
             .replace('{' + 'orgId' + '}', encodeURIComponent(String(orgId)))
             .replace('{' + 'siteId' + '}', encodeURIComponent(String(siteId)))
-            .replace('{' + 'invoiceLineItemId' + '}', encodeURIComponent(String(invoiceLineItemId)));
+            .replace('{' + 'invoiceId' + '}', encodeURIComponent(String(invoiceId)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json;v=1'];
@@ -1053,17 +1055,22 @@ export class DefaultApi {
 
         // verify required parameter 'orgId' is not null or undefined
         if (orgId === null || orgId === undefined) {
-            throw new Error('Required parameter orgId was null or undefined when calling waiveInvoiceFee.');
+            throw new Error('Required parameter orgId was null or undefined when calling handleInvoiceLineItemAction.');
         }
 
         // verify required parameter 'siteId' is not null or undefined
         if (siteId === null || siteId === undefined) {
-            throw new Error('Required parameter siteId was null or undefined when calling waiveInvoiceFee.');
+            throw new Error('Required parameter siteId was null or undefined when calling handleInvoiceLineItemAction.');
         }
 
-        // verify required parameter 'invoiceLineItemId' is not null or undefined
-        if (invoiceLineItemId === null || invoiceLineItemId === undefined) {
-            throw new Error('Required parameter invoiceLineItemId was null or undefined when calling waiveInvoiceFee.');
+        // verify required parameter 'invoiceId' is not null or undefined
+        if (invoiceId === null || invoiceId === undefined) {
+            throw new Error('Required parameter invoiceId was null or undefined when calling handleInvoiceLineItemAction.');
+        }
+
+        // verify required parameter 'invoiceLineItemActionRequest' is not null or undefined
+        if (invoiceLineItemActionRequest === null || invoiceLineItemActionRequest === undefined) {
+            throw new Error('Required parameter invoiceLineItemActionRequest was null or undefined when calling handleInvoiceLineItemAction.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -1071,12 +1078,13 @@ export class DefaultApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'PUT',
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
+            body: ObjectSerializer.serialize(invoiceLineItemActionRequest, "InvoiceLineItemActionRequest")
         };
 
         let authenticationPromise = Promise.resolve();

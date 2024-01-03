@@ -14,6 +14,7 @@ import { RequestFile } from './models';
 import { InvoiceStatus } from './invoiceStatus';
 import { InvoiceV2ResponseAddress } from './invoiceV2ResponseAddress';
 import { ReducedInvoiceV2LineItem } from './reducedInvoiceV2LineItem';
+import { UnpaidWithBalance } from './unpaidWithBalance';
 
 export class InvoiceV2Response {
     /**
@@ -78,6 +79,10 @@ export class InvoiceV2Response {
     * Unpaid invoice line items
     */
     'unpaid': Array<string> | null;
+    /**
+    * Unpaid invoice line items
+    */
+    'unpaidWithBalance': Array<UnpaidWithBalance> | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -166,6 +171,11 @@ export class InvoiceV2Response {
             "name": "unpaid",
             "baseName": "unpaid",
             "type": "Array<string>"
+        },
+        {
+            "name": "unpaidWithBalance",
+            "baseName": "unpaidWithBalance",
+            "type": "Array<UnpaidWithBalance>"
         }    ];
 
     static getAttributeTypeMap() {

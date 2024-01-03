@@ -17,5 +17,6 @@ export enum AccountTransactionType {
     Fee = <any> 'fee',
     Payment = <any> 'payment',
     Refund = <any> 'refund',
-    Waive = <any> 'waive'
+    Waive = <any> 'waive',
+    Credit = <any> 'credit'
 }

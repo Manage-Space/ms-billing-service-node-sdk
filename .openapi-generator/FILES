@@ -6,10 +6,14 @@ git_push.sh
 model/accountCurrentBalance.ts
 model/accountTransactionResponse.ts
 model/accountTransactionType.ts
+model/addFee.ts
+model/applyCredit.ts
 model/badRequestError400Response.ts
 model/badRequestError400ResponseError.ts
 model/baseError.ts
 model/createInvoiceLineItemRequest.ts
+model/creditDistribution.ts
+model/feeDetails.ts
 model/forbiddenError403Response.ts
 model/forbiddenError403ResponseError.ts
 model/getAccountCurrentBalance200Response.ts
@@ -19,6 +23,8 @@ model/getInvoiceLineItemsByFilters200Response.ts
 model/getLedgers200Response.ts
 model/internalServerError500Response.ts
 model/internalServerError500ResponseError.ts
+model/invoiceLineItemActionRequest.ts
+model/invoiceLineItemActionRequestPayload.ts
 model/invoiceStatus.ts
 model/invoiceV2AddressResponse.ts
 model/invoiceV2LineItemResponse.ts
@@ -31,5 +37,7 @@ model/reducedInvoiceV2LineItem.ts
 model/transactionSummaryResponse.ts
 model/unauthorizedError401Response.ts
 model/unauthorizedError401ResponseError.ts
+model/unpaidWithBalance.ts
+model/waiveFee.ts
 package.json
 tsconfig.json

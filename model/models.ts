@@ -3,10 +3,14 @@ import localVarRequest from 'request';
 export * from './accountCurrentBalance';
 export * from './accountTransactionResponse';
 export * from './accountTransactionType';
+export * from './addFee';
+export * from './applyCredit';
 export * from './badRequestError400Response';
 export * from './badRequestError400ResponseError';
 export * from './baseError';
 export * from './createInvoiceLineItemRequest';
+export * from './creditDistribution';
+export * from './feeDetails';
 export * from './forbiddenError403Response';
 export * from './forbiddenError403ResponseError';
 export * from './getAccountCurrentBalance200Response';
@@ -16,6 +20,8 @@ export * from './getInvoiceLineItemsByFilters200Response';
 export * from './getLedgers200Response';
 export * from './internalServerError500Response';
 export * from './internalServerError500ResponseError';
+export * from './invoiceLineItemActionRequest';
+export * from './invoiceLineItemActionRequestPayload';
 export * from './invoiceStatus';
 export * from './invoiceV2AddressResponse';
 export * from './invoiceV2LineItemResponse';
@@ -27,6 +33,8 @@ export * from './reducedInvoiceV2LineItem';
 export * from './transactionSummaryResponse';
 export * from './unauthorizedError401Response';
 export * from './unauthorizedError401ResponseError';
+export * from './unpaidWithBalance';
+export * from './waiveFee';
 
 import * as fs from 'fs';
 
@@ -44,10 +52,14 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 import { AccountCurrentBalance } from './accountCurrentBalance';
 import { AccountTransactionResponse } from './accountTransactionResponse';
 import { AccountTransactionType } from './accountTransactionType';
+import { AddFee } from './addFee';
+import { ApplyCredit } from './applyCredit';
 import { BadRequestError400Response } from './badRequestError400Response';
 import { BadRequestError400ResponseError } from './badRequestError400ResponseError';
 import { BaseError } from './baseError';
 import { CreateInvoiceLineItemRequest } from './createInvoiceLineItemRequest';
+import { CreditDistribution } from './creditDistribution';
+import { FeeDetails } from './feeDetails';
 import { ForbiddenError403Response } from './forbiddenError403Response';
 import { ForbiddenError403ResponseError } from './forbiddenError403ResponseError';
 import { GetAccountCurrentBalance200Response } from './getAccountCurrentBalance200Response';
@@ -57,6 +69,8 @@ import { GetInvoiceLineItemsByFilters200Response } from './getInvoiceLineItemsBy
 import { GetLedgers200Response } from './getLedgers200Response';
 import { InternalServerError500Response } from './internalServerError500Response';
 import { InternalServerError500ResponseError } from './internalServerError500ResponseError';
+import { InvoiceLineItemActionRequest } from './invoiceLineItemActionRequest';
+import { InvoiceLineItemActionRequestPayload } from './invoiceLineItemActionRequestPayload';
 import { InvoiceStatus } from './invoiceStatus';
 import { InvoiceV2AddressResponse } from './invoiceV2AddressResponse';
 import { InvoiceV2LineItemResponse } from './invoiceV2LineItemResponse';
@@ -68,6 +82,8 @@ import { ReducedInvoiceV2LineItem } from './reducedInvoiceV2LineItem';
 import { TransactionSummaryResponse } from './transactionSummaryResponse';
 import { UnauthorizedError401Response } from './unauthorizedError401Response';
 import { UnauthorizedError401ResponseError } from './unauthorizedError401ResponseError';
+import { UnpaidWithBalance } from './unpaidWithBalance';
+import { WaiveFee } from './waiveFee';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -83,18 +99,26 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "AccountTransactionType": AccountTransactionType,
+        "AddFee.ActionEnum": AddFee.ActionEnum,
+        "ApplyCredit.ActionEnum": ApplyCredit.ActionEnum,
+        "InvoiceLineItemActionRequestPayload.ActionEnum": InvoiceLineItemActionRequestPayload.ActionEnum,
         "InvoiceStatus": InvoiceStatus,
         "InvoiceV2LineItemResponseInvoice.InvoiceStatusEnum": InvoiceV2LineItemResponseInvoice.InvoiceStatusEnum,
         "TransactionSummaryResponse.StatusEnum": TransactionSummaryResponse.StatusEnum,
+        "WaiveFee.ActionEnum": WaiveFee.ActionEnum,
 }
 
 let typeMap: {[index: string]: any} = {
     "AccountCurrentBalance": AccountCurrentBalance,
     "AccountTransactionResponse": AccountTransactionResponse,
+    "AddFee": AddFee,
+    "ApplyCredit": ApplyCredit,
     "BadRequestError400Response": BadRequestError400Response,
     "BadRequestError400ResponseError": BadRequestError400ResponseError,
     "BaseError": BaseError,
     "CreateInvoiceLineItemRequest": CreateInvoiceLineItemRequest,
+    "CreditDistribution": CreditDistribution,
+    "FeeDetails": FeeDetails,
     "ForbiddenError403Response": ForbiddenError403Response,
     "ForbiddenError403ResponseError": ForbiddenError403ResponseError,
     "GetAccountCurrentBalance200Response": GetAccountCurrentBalance200Response,
@@ -104,6 +128,8 @@ let typeMap: {[index: string]: any} = {
     "GetLedgers200Response": GetLedgers200Response,
     "InternalServerError500Response": InternalServerError500Response,
     "InternalServerError500ResponseError": InternalServerError500ResponseError,
+    "InvoiceLineItemActionRequest": InvoiceLineItemActionRequest,
+    "InvoiceLineItemActionRequestPayload": InvoiceLineItemActionRequestPayload,
     "InvoiceV2AddressResponse": InvoiceV2AddressResponse,
     "InvoiceV2LineItemResponse": InvoiceV2LineItemResponse,
     "InvoiceV2LineItemResponseInvoice": InvoiceV2LineItemResponseInvoice,
@@ -114,6 +140,8 @@ let typeMap: {[index: string]: any} = {
     "TransactionSummaryResponse": TransactionSummaryResponse,
     "UnauthorizedError401Response": UnauthorizedError401Response,
     "UnauthorizedError401ResponseError": UnauthorizedError401ResponseError,
+    "UnpaidWithBalance": UnpaidWithBalance,
+    "WaiveFee": WaiveFee,
 }
 
 export class ObjectSerializer {
