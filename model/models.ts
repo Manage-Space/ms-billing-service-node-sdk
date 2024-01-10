@@ -22,6 +22,7 @@ export * from './internalServerError500Response';
 export * from './internalServerError500ResponseError';
 export * from './invoiceLineItemActionRequest';
 export * from './invoiceLineItemActionRequestPayload';
+export * from './invoiceLineItemAdjustmentResponse';
 export * from './invoiceStatus';
 export * from './invoiceV2AddressResponse';
 export * from './invoiceV2LineItemResponse';
@@ -34,7 +35,6 @@ export * from './transactionSummaryResponse';
 export * from './unauthorizedError401Response';
 export * from './unauthorizedError401ResponseError';
 export * from './unpaidWithBalance';
-export * from './waiveFee';
 
 import * as fs from 'fs';
 
@@ -71,6 +71,7 @@ import { InternalServerError500Response } from './internalServerError500Response
 import { InternalServerError500ResponseError } from './internalServerError500ResponseError';
 import { InvoiceLineItemActionRequest } from './invoiceLineItemActionRequest';
 import { InvoiceLineItemActionRequestPayload } from './invoiceLineItemActionRequestPayload';
+import { InvoiceLineItemAdjustmentResponse } from './invoiceLineItemAdjustmentResponse';
 import { InvoiceStatus } from './invoiceStatus';
 import { InvoiceV2AddressResponse } from './invoiceV2AddressResponse';
 import { InvoiceV2LineItemResponse } from './invoiceV2LineItemResponse';
@@ -83,7 +84,6 @@ import { TransactionSummaryResponse } from './transactionSummaryResponse';
 import { UnauthorizedError401Response } from './unauthorizedError401Response';
 import { UnauthorizedError401ResponseError } from './unauthorizedError401ResponseError';
 import { UnpaidWithBalance } from './unpaidWithBalance';
-import { WaiveFee } from './waiveFee';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -105,7 +105,6 @@ let enumsMap: {[index: string]: any} = {
         "InvoiceStatus": InvoiceStatus,
         "InvoiceV2LineItemResponseInvoice.InvoiceStatusEnum": InvoiceV2LineItemResponseInvoice.InvoiceStatusEnum,
         "TransactionSummaryResponse.StatusEnum": TransactionSummaryResponse.StatusEnum,
-        "WaiveFee.ActionEnum": WaiveFee.ActionEnum,
 }
 
 let typeMap: {[index: string]: any} = {
@@ -130,6 +129,7 @@ let typeMap: {[index: string]: any} = {
     "InternalServerError500ResponseError": InternalServerError500ResponseError,
     "InvoiceLineItemActionRequest": InvoiceLineItemActionRequest,
     "InvoiceLineItemActionRequestPayload": InvoiceLineItemActionRequestPayload,
+    "InvoiceLineItemAdjustmentResponse": InvoiceLineItemAdjustmentResponse,
     "InvoiceV2AddressResponse": InvoiceV2AddressResponse,
     "InvoiceV2LineItemResponse": InvoiceV2LineItemResponse,
     "InvoiceV2LineItemResponseInvoice": InvoiceV2LineItemResponseInvoice,
@@ -141,7 +141,6 @@ let typeMap: {[index: string]: any} = {
     "UnauthorizedError401Response": UnauthorizedError401Response,
     "UnauthorizedError401ResponseError": UnauthorizedError401ResponseError,
     "UnpaidWithBalance": UnpaidWithBalance,
-    "WaiveFee": WaiveFee,
 }
 
 export class ObjectSerializer {

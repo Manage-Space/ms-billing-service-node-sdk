@@ -15,21 +15,16 @@ import { AddFee } from './addFee';
 import { ApplyCredit } from './applyCredit';
 import { CreditDistribution } from './creditDistribution';
 import { FeeDetails } from './feeDetails';
-import { WaiveFee } from './waiveFee';
 
 /**
 * Action payload
 */
 export class InvoiceLineItemActionRequestPayload {
-    /**
-    * ID of the invoice line item to waive
-    */
-    'invoiceLineItemId': string;
+    'feeDetails': FeeDetails;
     /**
     * Action to apply credit.
     */
     'action': InvoiceLineItemActionRequestPayload.ActionEnum = InvoiceLineItemActionRequestPayload.ActionEnum.ApplyCredit;
-    'feeDetails': FeeDetails;
     /**
     * Credit distributions
     */
@@ -39,19 +34,14 @@ export class InvoiceLineItemActionRequestPayload {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "invoiceLineItemId",
-            "baseName": "invoiceLineItemId",
-            "type": "string"
+            "name": "feeDetails",
+            "baseName": "feeDetails",
+            "type": "FeeDetails"
         },
         {
             "name": "action",
             "baseName": "action",
             "type": "InvoiceLineItemActionRequestPayload.ActionEnum"
-        },
-        {
-            "name": "feeDetails",
-            "baseName": "feeDetails",
-            "type": "FeeDetails"
         },
         {
             "name": "creditDistributions",

@@ -40,8 +40,11 @@ export class InvoiceV2LineItemResponseInvoice {
 
 export namespace InvoiceV2LineItemResponseInvoice {
     export enum InvoiceStatusEnum {
+        Due = <any> 'due',
         Paid = <any> 'paid',
+        Pending = <any> 'pending',
         Unpaid = <any> 'unpaid',
+        Draft = <any> 'draft',
         Overdue = <any> 'overdue'
     }
 }

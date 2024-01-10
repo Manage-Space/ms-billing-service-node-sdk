@@ -11,6 +11,7 @@
  */
 
 import { RequestFile } from './models';
+import { InvoiceLineItemAdjustmentResponse } from './invoiceLineItemAdjustmentResponse';
 import { InvoiceV2LineItemResponseInvoice } from './invoiceV2LineItemResponseInvoice';
 
 export class InvoiceV2LineItemResponse {
@@ -67,6 +68,10 @@ export class InvoiceV2LineItemResponse {
     */
     'tag': string;
     'invoice': InvoiceV2LineItemResponseInvoice | null;
+    /**
+    * Adjustments.
+    */
+    'adjustments': Array<InvoiceLineItemAdjustmentResponse>;
 
     static discriminator: string | undefined = undefined;
 
@@ -140,6 +145,11 @@ export class InvoiceV2LineItemResponse {
             "name": "invoice",
             "baseName": "invoice",
             "type": "InvoiceV2LineItemResponseInvoice"
+        },
+        {
+            "name": "adjustments",
+            "baseName": "adjustments",
+            "type": "Array<InvoiceLineItemAdjustmentResponse>"
         }    ];
 
     static getAttributeTypeMap() {

@@ -25,6 +25,7 @@ model/internalServerError500Response.ts
 model/internalServerError500ResponseError.ts
 model/invoiceLineItemActionRequest.ts
 model/invoiceLineItemActionRequestPayload.ts
+model/invoiceLineItemAdjustmentResponse.ts
 model/invoiceStatus.ts
 model/invoiceV2AddressResponse.ts
 model/invoiceV2LineItemResponse.ts
@@ -38,6 +39,5 @@ model/transactionSummaryResponse.ts
 model/unauthorizedError401Response.ts
 model/unauthorizedError401ResponseError.ts
 model/unpaidWithBalance.ts
-model/waiveFee.ts
 package.json
 tsconfig.json

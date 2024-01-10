@@ -13,7 +13,10 @@
 import { RequestFile } from './models';
 
 export enum InvoiceStatus {
+    Due = <any> 'due',
     Paid = <any> 'paid',
+    Pending = <any> 'pending',
     Unpaid = <any> 'unpaid',
+    Draft = <any> 'draft',
     Overdue = <any> 'overdue'
 }
