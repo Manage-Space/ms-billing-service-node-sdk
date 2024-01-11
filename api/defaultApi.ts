@@ -831,9 +831,10 @@ export class DefaultApi {
      * @param dateFrom 
      * @param dateTo 
      * @param accountId Account Id
+     * @param invoiceStatus Comma-separated list of statuses (e.g., paid,draft)
      * @param rentalId Rental Id
      */
-    public async getInvoicesV2 (orgId: string, siteId: string, offset?: number, limit?: number, dateFrom?: Date, dateTo?: Date, accountId?: string, rentalId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetInvoiceByIdV2200Response;  }> {
+    public async getInvoicesV2 (orgId: string, siteId: string, offset?: number, limit?: number, dateFrom?: Date, dateTo?: Date, accountId?: string, invoiceStatus?: Array<string>, rentalId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetInvoiceByIdV2200Response;  }> {
         const localVarPath = this.basePath + '/billing/orgs/{orgId}/sites/{siteId}/invoices'
             .replace('{' + 'orgId' + '}', encodeURIComponent(String(orgId)))
             .replace('{' + 'siteId' + '}', encodeURIComponent(String(siteId)));
@@ -876,6 +877,10 @@ export class DefaultApi {
 
         if (accountId !== undefined) {
             localVarQueryParameters['accountId'] = ObjectSerializer.serialize(accountId, "string");
+        }
+
+        if (invoiceStatus !== undefined) {
+            localVarQueryParameters['invoiceStatus'] = ObjectSerializer.serialize(invoiceStatus, "Array<string>");
         }
 
         if (rentalId !== undefined) {

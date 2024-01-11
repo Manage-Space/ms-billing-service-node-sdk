@@ -26,7 +26,7 @@ export class TransactionSummaryResponse {
     /**
     * Invoice period end date.
     */
-    'invoicePeriodEndDate': string | null;
+    'invoicePeriodEndDate': Date | null;
     /**
     * Invoice id
     */
@@ -73,7 +73,7 @@ export class TransactionSummaryResponse {
         {
             "name": "invoicePeriodEndDate",
             "baseName": "invoicePeriodEndDate",
-            "type": "string"
+            "type": "Date"
         },
         {
             "name": "invoiceLineItemId",

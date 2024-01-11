@@ -62,19 +62,19 @@ export class InvoiceV2Response {
     /**
     * Created at.
     */
-    'createdAt': string;
+    'createdAt': Date;
     /**
     * Updated at.
     */
-    'updatedAt': string;
+    'updatedAt': Date;
     /**
     * Invoice period start date.
     */
-    'invoicePeriodStartDate': string | null;
+    'invoicePeriodStartDate': Date | null;
     /**
     * Invoice period end date.
     */
-    'invoicePeriodEndDate': string | null;
+    'invoicePeriodEndDate': Date | null;
     /**
     * Unpaid invoice line items
     */
@@ -150,22 +150,22 @@ export class InvoiceV2Response {
         {
             "name": "createdAt",
             "baseName": "createdAt",
-            "type": "string"
+            "type": "Date"
         },
         {
             "name": "updatedAt",
             "baseName": "updatedAt",
-            "type": "string"
+            "type": "Date"
         },
         {
             "name": "invoicePeriodStartDate",
             "baseName": "invoicePeriodStartDate",
-            "type": "string"
+            "type": "Date"
         },
         {
             "name": "invoicePeriodEndDate",
             "baseName": "invoicePeriodEndDate",
-            "type": "string"
+            "type": "Date"
         },
         {
             "name": "unpaid",

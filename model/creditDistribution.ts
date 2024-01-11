@@ -21,6 +21,10 @@ export class CreditDistribution {
     * Credit towards the invoice line item.
     */
     'creditAmount': number;
+    /**
+    * Credit notes.
+    */
+    'notes'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -34,6 +38,11 @@ export class CreditDistribution {
             "name": "creditAmount",
             "baseName": "creditAmount",
             "type": "number"
+        },
+        {
+            "name": "notes",
+            "baseName": "notes",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
