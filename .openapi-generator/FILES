@@ -39,5 +39,6 @@ model/transactionSummaryResponse.ts
 model/unauthorizedError401Response.ts
 model/unauthorizedError401ResponseError.ts
 model/unpaidWithBalance.ts
+model/updateInvoiceStatusRequestDto.ts
 package.json
 tsconfig.json

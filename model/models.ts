@@ -35,6 +35,7 @@ export * from './transactionSummaryResponse';
 export * from './unauthorizedError401Response';
 export * from './unauthorizedError401ResponseError';
 export * from './unpaidWithBalance';
+export * from './updateInvoiceStatusRequestDto';
 
 import * as fs from 'fs';
 
@@ -84,6 +85,7 @@ import { TransactionSummaryResponse } from './transactionSummaryResponse';
 import { UnauthorizedError401Response } from './unauthorizedError401Response';
 import { UnauthorizedError401ResponseError } from './unauthorizedError401ResponseError';
 import { UnpaidWithBalance } from './unpaidWithBalance';
+import { UpdateInvoiceStatusRequestDto } from './updateInvoiceStatusRequestDto';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -141,6 +143,7 @@ let typeMap: {[index: string]: any} = {
     "UnauthorizedError401Response": UnauthorizedError401Response,
     "UnauthorizedError401ResponseError": UnauthorizedError401ResponseError,
     "UnpaidWithBalance": UnpaidWithBalance,
+    "UpdateInvoiceStatusRequestDto": UpdateInvoiceStatusRequestDto,
 }
 
 export class ObjectSerializer {
