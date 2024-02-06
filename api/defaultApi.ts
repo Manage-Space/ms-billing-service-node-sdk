@@ -831,11 +831,13 @@ export class DefaultApi {
      * @param limit The maximum number of records to return per page.
      * @param dateFrom 
      * @param dateTo 
-     * @param accountId Account Id
+     * @param fromPrice The price to search from.
+     * @param toPrice The price to search to.
+     * @param accountId Comma-separated list of Account Id\&#39;s
      * @param invoiceStatus Comma-separated list of statuses (e.g., paid,draft)
      * @param rentalId Rental Id
      */
-    public async getInvoicesV2 (orgId: string, siteId: string, offset?: number, limit?: number, dateFrom?: Date, dateTo?: Date, accountId?: string, invoiceStatus?: string, rentalId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetInvoiceByIdV2200Response;  }> {
+    public async getInvoicesV2 (orgId: string, siteId: string, offset?: number, limit?: number, dateFrom?: Date, dateTo?: Date, fromPrice?: number, toPrice?: number, accountId?: string, invoiceStatus?: string, rentalId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GetInvoiceByIdV2200Response;  }> {
         const localVarPath = this.basePath + '/billing/orgs/{orgId}/sites/{siteId}/invoices'
             .replace('{' + 'orgId' + '}', encodeURIComponent(String(orgId)))
             .replace('{' + 'siteId' + '}', encodeURIComponent(String(siteId)));
@@ -874,6 +876,14 @@ export class DefaultApi {
 
         if (dateTo !== undefined) {
             localVarQueryParameters['dateTo'] = ObjectSerializer.serialize(dateTo, "Date");
+        }
+
+        if (fromPrice !== undefined) {
+            localVarQueryParameters['fromPrice'] = ObjectSerializer.serialize(fromPrice, "number");
+        }
+
+        if (toPrice !== undefined) {
+            localVarQueryParameters['toPrice'] = ObjectSerializer.serialize(toPrice, "number");
         }
 
         if (accountId !== undefined) {
